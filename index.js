@@ -10,6 +10,26 @@
 
   brownCache = {};
 
+  brown.merge = function(source, obj, clone) {
+    var prop, v;
+    if (source === null) {
+      return source;
+    }
+    for (prop in obj) {
+      v = obj[prop];
+      if (source[prop] !== null && typeof source[prop] === 'object' && typeof obj[prop] === 'object') {
+        this.merge(source[prop], obj[prop]);
+      } else {
+        if (clone) {
+          source[prop] = this.clone;
+        } else {
+          source[prop] = obj[prop];
+        }
+      }
+    }
+    return source;
+  };
+
   brown.__express = function(path, options, fn) {
     if (brownCache[path]) {
       return fn(null, brownCache[path]);
@@ -19,7 +39,7 @@
           return fn(err);
         }
         file = file.replace(/^\uFEFF/, '');
-        fn(null, (brownCache[path] = brown.render(file, brown)));
+        fn(null, (brownCache[path] = brown.render(file, brown.merge(brown, options))));
       }));
     }
   };
