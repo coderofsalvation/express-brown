@@ -4,7 +4,7 @@
   "author": {
     "name": "coderofsalvation"
   },
-  "version": "1.0.16",
+  "version": "1.0.17",
   "repository": {
     "type": "git",
     "url": "http://github.com/coderofsalvation/brown-express.git"
@@ -12,8 +12,8 @@
   "main": "index.js",
   "contributors": [],
   "dependencies": {
-    "brown": "~0.8.1",
-    "brown-ext-basic": "^1.0.1",
+    "brown": "~1.1.25",
+    "brown-ext-basic": "^1.0.2",
     "express": "^4.13.3"
   },
   "devDependencies": {},
