@@ -6,8 +6,8 @@ This lets you use [ϐrown](https://npmjs.org/packages/brown) and Express (at lea
 
 Javascript:
 
-      var express = require('../node_modules/express');
-      var brown = require('../index.coffee');
+      var express = require('express');
+      var brown = require('brown-express')
       var app = new express();
 
       app.engine('html', brown.__express);
